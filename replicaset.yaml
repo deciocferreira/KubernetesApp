@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: labreplica
+spec:
+  replicas: 3
+  selector:
+  -  matchLabels:
+      app: web  
+  template:    
+    metadata:
+      labels:
+       app: web
+    spec:   
+      image: fabricioveronez/web-page:blue 
+    ports: 
+     - containerPort: 80
